@@ -1,11 +1,8 @@
+const rl = require('../Util');
 
-const EightBall = (question) => {
-    const answer = ['Yes', 'No', 'Ask Again later'];
-
-    const random = Math.abs(Math.floor(Math.random() * answer.length - 1) + 1);
-
-    console.log(`${question}?  \n ... ${answer[random]}`)
-};
-
-
-EightBall('Is this good code');
+module.exports = rl.question( 'What is your question? ', () => {
+    const answer = ['Yes.', 'Maybe.', 'No.', 'Ask Again later.'];
+    const random = Math.floor(Math.random() * answer.length);
+    console.log(answer[random]);
+    rl.close()
+});

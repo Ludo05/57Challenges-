@@ -1,21 +1,28 @@
-const passwordValidator = (password) => {
-    const isnum = (string) => /^\d+$/.test(string);
-    const isword = (string) => /^\w+$/.test(string);
-    const wordPlusOneNumber = (string) => /\w\d+/.test(string);
-    const special  = (string) => /[!@#$%^&*(),.?":{}|<>\d+\w+]+/.test(string);
+module.exports.passwordValidator = (password) => {
+    const isnum = (string) => /\d+/.test(string);
+    const isword = (string) => /\w+/.test(string);
+    const special  = (string) => /[!][@][*][?][(][)]/.test(string);
 
-    if(password.length < 8 && isnum(password)){
-        console.log('Very weak password')
+    const passwordReplies = ['Please enter a password', 'is a very weak password', 'is a weak password', 'is a strong password', 'is a very strong password', 'dunno'];
+
+    let level;
+    if(password === '') {
+        level =  0
+    } else if(password.length > 0 && password.length < 8 && isnum(password)){
+        level = 1
     } else
-        if(password.length < 8 && isword(password)){
-        console.log('Weak password')
+        if(password.length > 0 &&  password.length < 8 && isword(password)){
+        level = 2
     } else
-        if(password.length >= 8 && wordPlusOneNumber(password)){
-            console.log('Strong  password')
-        } else
-        if(password.length >= 8 && special(password)){
-            console.log('Very strong  password')
-        }
+        if(password.length >= 8 && (isnum(password) && isword(password))){
+        level = 3
+    } else
+        if(password.length >= 8 &&  (isnum(password) && isword(password) && special(password))){
+        level =  4
+    } else {
+        level = 5;
+    }
+        return passwordReplies[level]
 };
 
-passwordValidator('ddjddddjd!!!3')
+

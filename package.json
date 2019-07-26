@@ -1,0 +1,26 @@
+{
+  "name": "57programmers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewis150193/57Challenges-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lewis150193/57Challenges-/issues"
+  },
+  "homepage": "https://github.com/lewis150193/57Challenges-#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "sinon": "^7.3.2"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
