@@ -1,7 +1,5 @@
 const trap = [0,1,0,1,0,1,0,2,1,2];
-//Check if the number before is higher or lower.
-//If lower check how much lower it is.
-//Check how much
+
 const waterTrap = (numberArray) => {
     //Gets the array length.
     let arrLength = numberArray.length;
@@ -11,23 +9,22 @@ const waterTrap = (numberArray) => {
     //Left side of the array
     let current = 0;
     //Right side of the array
-    let right = arrLength - 1;
+    let endNext = arrLength - 1;
 
     //Highest block
     let highestBlock = 0;
 
-    while(current<=right) {
+    while(current<=endNext) {
         console.log('______________________________')
         console.log(`number = ${numberArray[current]}`);
         console.log(`highestBlock = ${highestBlock}`);
         console.log(`result = ${result}`)
         console.log('______________________________')
-        //If number is greater than highestBlock, highestBlock = number
+        //If current is greater than highestBlock, current equals highestBlock
         if (numberArray[current] >= highestBlock) {
             highestBlock = numberArray[current];
         } else {
-            //Add to result because highestBlock is smaller than
-            // highestBlock - the number which is the array.
+            //Take away the current highest from the current number we are at
             result =  result + highestBlock-numberArray[current];
         }
             current++;
