@@ -9,12 +9,12 @@ const waterTrap = (numberArray) => {
     //Left side of the array
     let current = 0;
     //Right side of the array
-    let endNext = arrLength - 1;
+    let lastBlock = arrLength - 1;
 
     //Highest block
     let highestBlock = 0;
 
-    while(current<=endNext) {
+    while(current<=lastBlock) {
         console.log('______________________________')
         console.log(`number = ${numberArray[current]}`);
         console.log(`highestBlock = ${highestBlock}`);
