@@ -1,10 +1,8 @@
-const trap = [0,1,0,1,0,1,0,2,1,2];
+const trap = [0,1,0,2,1,0,1,3,2,1,2,1];
 
 const waterTrap = (numberArray) => {
     //Gets the array length.
     let arrLength = numberArray.length;
-    //If no array returns 0
-    if(!arrLength) return 0;
     let result = 0;
     //Left side of the array
     let current = 0;
