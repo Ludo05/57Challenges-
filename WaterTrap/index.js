@@ -1,34 +1,34 @@
-const trap = [0,1,0,1,0,1,0,2,1,2];
-const waterTrap = (numberArray) => {
-    //Gets the array length.
-    let arrLength = numberArray.length;
-    //If no array returns 0
-    if(!arrLength) return 0;
+
+ module.exports.trappingWater = (arr) => {
+    let trapLength = arr.length - 1;
     let result = 0;
-    //Left side of the array
-    let current = 0;
-    //Right side of the array
-    let lastBlock = arrLength - 1;
+    let left = 0;
+    let right = trapLength;
+    let heightLeft = 0;
+    let heightRight = 0;
 
-    //Highest block
-    let highestBlock = 0;
-
-    while(current<=lastBlock) {
-        console.log('______________________________')
-        console.log(`number = ${numberArray[current]}`);
-        console.log(`highestBlock = ${highestBlock}`);
-        console.log(`result = ${result}`)
-        console.log('______________________________')
-        //If current is greater than highestBlock, current equals highestBlock
-        if (numberArray[current] >= highestBlock) {
-            highestBlock = numberArray[current];
+    while(left <= right){
+        //if left hand side is less than right hand side, (Checks which side to start working forward or back from).
+        if(arr[left] <= arr[right]){
+            // if left is greater than the heightLeft we will make left = heightLeft
+            if(arr[left] >= heightLeft) {
+                heightLeft = arr[left];
+            } else {
+                //Else you will take away the difference between
+                result = result + heightLeft-arr[left];
+            }
+            left++;
         } else {
-            //Take away the current highest from the current number we are at
-            result =  result + highestBlock-numberArray[current];
+            // else if right is bigger move arr[right] to heightRight.
+            if(arr[right] >= heightRight) {
+                heightRight = arr[right];
+            } else {
+                //Else you will take away the difference between
+                result = result + heightRight-arr[right];
+            }
+            right--;
         }
-            current++;
     }
-    return result;
+return result;
 };
 
-console.log(waterTrap(trap));
