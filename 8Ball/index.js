@@ -5,6 +5,5 @@ module.exports = rl.question( 'What is your question? ', () => {
     const random = Math.floor(Math.random() * answer.length);
     console.log(answer[random]);
     rl.close();
-    process.stdin.destroy();
 
 });
