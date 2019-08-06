@@ -2,7 +2,7 @@
 module.exports.trappingWater = (arr) => {
     return  new TrapCal(arr).calc()
 
-}
+};
 
 class TrapCal {
     constructor(arr) {

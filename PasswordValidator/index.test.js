@@ -1,7 +1,7 @@
 const { passwordValidator }= require('./index')
 
 describe('Tests password validator', () => {
-    xit('should give the correct outputs for tests', () => {
+    it('should give the correct outputs for tests', () => {
         expect(passwordValidator('')).toBe('Please enter a password');
 
     });
@@ -19,6 +19,10 @@ describe('Tests password validator', () => {
     });
     it('should give the correct outputs for tests', () => {
         expect(passwordValidator('1337!hxor@')).toBe("The password 1337!hxor@ is a very strong password");
+
+    });
+    it('should give the correct outputs for tests', () => {
+        expect(passwordValidator('@')).toBe('can\'t be validated');
 
     });
 });

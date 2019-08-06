@@ -22,7 +22,7 @@ calc(){
         const {heightLeft, heightRight, left, right, result, arr} = this;
         //if left hand side is less than right hand side, (Checks which side to start working forward or back from).
         if(arr[left] <= arr[right]){
-            // if left is greater than the heightLeft we will make left = heightLeft
+            // if left is greater than the heightLeft we will make left = eightLeft
             if(arr[left] >= heightLeft) {
                 this.heightLeft = arr[left];
             } else {

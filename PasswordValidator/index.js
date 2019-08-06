@@ -4,7 +4,7 @@ module.exports.passwordValidator = (password) => {
     const special  = (string) => /[!@*?()]/.test(string);
 
     const passwordReplies = (password) => [`Please enter a password`, `The password '${password}' is a very weak password`, `The password '${password}' is a weak password`,
-        `The Password ${password} is a strong password`, `The password ${password} is a very strong password`, 'dunno'];
+        `The Password ${password} is a strong password`, `The password ${password} is a very strong password`, 'can\'t be validated'];
 
     //Remember the order of the if statements are important!!!
     let level;
@@ -21,6 +21,8 @@ module.exports.passwordValidator = (password) => {
     } else
         if(password.length >= 8 && (isnum(password) && isword(password))) {
             level = 3
+        } else {
+            level = 5;
         }
 
         return passwordReplies(password)[level]

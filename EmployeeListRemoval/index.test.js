@@ -1,4 +1,4 @@
-const { removeEmployee } = require('./index');
+const { removeEmployee } = require('./removeEmployee');
 
 
 describe('test remove function', function () {
