@@ -10,11 +10,11 @@ const isAnagram = () => {
           const sortedStringOne = stringOne.split('').sort().join('');
           const sortedStringTwo = stringTwo.split('').sort().join('');
           if (sortedStringOne === sortedStringTwo) {
-              console.log(`${stringOne} and ${stringTwo} are anagrams.`)
+              console.log(`${stringOne} and ${stringTwo} are anagrams.`);
               return true
           }
       }else {
-          console.log('They are not anagrams')
+          console.log('They are not anagrams');
           return false
       }
    rl.close()
