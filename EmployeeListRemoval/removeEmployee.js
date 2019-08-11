@@ -47,3 +47,5 @@ const removeEmp = (emp,list) => {
         }
     })
 };
+
+module.exports.remEmp = removeEmp;

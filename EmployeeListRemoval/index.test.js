@@ -1,4 +1,4 @@
-const { removeEmployee } = require('./removeEmployee');
+const { remEmp } = require('./removeEmployee');
 
 
 describe('test remove function', function () {
@@ -8,11 +8,11 @@ describe('test remove function', function () {
     });
 
     it('should remove name from list', function () {
-        expect(removeEmployee('John Smith',list)).toEqual(1)
+        expect(remEmp('John Smith',list)).toEqual(1)
 
     });
 
     it('should remove name from list', function () {
-        expect(removeEmployee('Joey',list)).toEqual(-1)
+        expect(remEmp('Joey',list)).toEqual(-1)
     });
 });
