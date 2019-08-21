@@ -1,7 +1,6 @@
 const fs = require('fs');
 const rl = require('../Util/consoleReadLine');
 
-// ./Emp.txt
 module.exports.getEmployeesFile = (file) => {
     return new Promise((resolve, reject) => {
         fs.readFile(file,'utf8', (err,data) => {
@@ -21,7 +20,6 @@ module.exports.getEmployeesFile = (file) => {
 module.exports.askForEmployeeToBeRemoved = (users) => {
     return new Promise( resolve => {
         rl.question(`Enter the employee you want to remove? `, emp => {
-            console.log(emp);
             resolve({users,emp})
         })
     });
@@ -38,10 +36,10 @@ const checkEmployeeExistenceAndRemove = (emp,list) => {
             const newEmployeeList = list.filter( e => e !== list[idx]).join('\n');
             fs.writeFile('./Emp.txt', newEmployeeList, (err) => {
                 if(err){
-                    reject(console.log(err))
+                    reject(err);
                     return -1
                 } else {
-                    resolve(console.log('Item has been deleted'))
+                    resolve('Item has been deleted');
                     return 1
                 }
             });

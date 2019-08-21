@@ -22,7 +22,7 @@ describe('Tests password validator', () => {
 
     });
     it('should give the correct outputs for tests', () => {
-        expect(passwordValidator('@')).toBe('can\'t be validated');
+        expect(passwordValidator('@1')).toBe('can\'t be validated');
 
     });
 });
