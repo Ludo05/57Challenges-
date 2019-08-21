@@ -6,7 +6,7 @@ module.exports.getEmployeesFile = (file) => {
         fs.readFile(file,'utf8', (err,data) => {
             let employeeList = [];
             if(err){
-                reject(err)
+                reject('File not found')
             } else {
                 console.log(data.split('\n'));
                 data.split('\n').filter(i => i !== '')
