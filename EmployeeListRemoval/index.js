@@ -1,21 +1,21 @@
-const {DeleteEmployee, askQuestion} = require('./removeEmployee')
+const {getEmployeesFile, askForEmployeeToBeRemoved, checkEmployeeExistenceAndRemove} = require('./removeEmployee')
 
-// DeleteEmployee('./Emp.txt')
-//     .then(data => {
-//         const filter = data.filter( i => i !== '');
-//         return filter;
-//     }).then( users => {
-//         users.forEach(emp => console.log(emp))
-//         return users;
-//         }).then( userToDelete => askQuestion(userToDelete))
-//     .catch(err => console.log(err));
-
-
+// getEmployeesFile('./Emp.txt')
+//     .then( users => askForEmployeeToBeRemoved(users))
+//     .then((obj) => checkEmployeeExistenceAndRemove(obj.emp,obj.users))
+//     .then( response => console.log(response))
+//     .catch(err => console.log(err))
 
 const DelEmployee = async (fileLocation) => {
-    const Delete = await DeleteEmployee(fileLocation);
-    console.log(Delete.join('\n'))
-    return  await askQuestion(Delete);
+    try {
+        const employees = await getEmployeesFile(fileLocation);
+        const askForUser = await askForEmployeeToBeRemoved(employees);
+        const responseObj = await checkEmployeeExistenceAndRemove(askForUser.emp, askForUser.users);
+        console.log(responseObj);
+    } catch (e) {
+        console.log(e)
+
+    }
 };
 
-DelEmployee('./Emp.txt').finally(() => console.log('Done'));
+DelEmployee('./Emp.txt');
